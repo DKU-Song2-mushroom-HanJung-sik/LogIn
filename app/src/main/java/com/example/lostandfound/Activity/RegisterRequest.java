@@ -12,13 +12,13 @@ public class RegisterRequest extends StringRequest {
     final static private String URL = "http://172.23.14.54/Register.php";
     private Map<String, String> map;
 
-    public RegisterRequest(String userID, String userName, String userContact, Response.Listener<String> listener) {
+    public RegisterRequest(String customerId, String customerName, String customerContact, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("userID",userID);
-        map.put("username", userName);
-        map.put("userContact", userContact + "");
+        map.put("customerId",customerId);
+        map.put("customerName", customerName);
+        map.put("customerContact", customerContact);
     }
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {

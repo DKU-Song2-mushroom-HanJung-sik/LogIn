@@ -3,7 +3,7 @@
     package="com.example.lostandfound">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.RegisterActivity" />
-        <activity android:name=".Activity.MainActivity"/>
+        <activity android:name=".Activity.MainActivity">
+
+        </activity>
     </application>
 
 </manifest>

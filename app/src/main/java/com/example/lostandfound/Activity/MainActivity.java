@@ -37,10 +37,10 @@ import java.io.BufferedReader;
 
 
          Intent intent = getIntent();
-         String userID = intent.getStringExtra("userID");
-         String userContact = intent.getStringExtra("userContact");
+         String customerId = intent.getStringExtra("customerId");
+         String customerContact = intent.getStringExtra("customerContact");
 
-         tv_id.setText(userID);
-         tv_contact.setText(userContact);
+         tv_id.setText(customerId);
+         tv_contact.setText(customerContact);
      }
     }

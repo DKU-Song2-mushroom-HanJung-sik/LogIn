@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 // EditText(et_id, et_contact)에 현재 입력된 값을 가져온다.
-                String userID = et_id.getText().toString();
-                String userContact = et_contact.getText().toString();
+                String customerId = et_id.getText().toString();
+                String customerContact = et_contact.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
@@ -58,13 +58,13 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
                             if (success) { // 로그인에 성공한 경우
-                                String userID = jsonObject.getString("userID");
-                                String userPass = jsonObject.getString("userContact");
+                                String customerId = jsonObject.getString("customerId");
+                                String customerContact = jsonObject.getString("customerContact");
 
                                 Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("userContact", userContact);
+                                intent.putExtra("customerId", customerId);
+                                intent.putExtra("customerContact", customerContact);
                                 startActivity(intent);
                             } else { // 로그인에 실패한 경우
                                 Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 };
-                LoginRequest loginRequest = new LoginRequest(userID, userContact, responseListener);
+                LoginRequest loginRequest = new LoginRequest(customerId, customerContact, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
